@@ -1,0 +1,311 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "tatty-by": {
+            "intent": "greetings.goodbye",
+            "domain": "default"
+          },
+          "farewel": {
+            "intent": "greetings.goodbye",
+            "domain": "default"
+          },
+          "long,so": {
+            "intent": "greetings.goodbye",
+            "domain": "default"
+          },
+          "hello,there": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "nice,see,to,you": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          },
+          "howdi": {
+            "intent": "greetings.hello",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "greetings.goodbye": "default",
+          "greetings.hello": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "Tatty-bye!",
+            "intent": "greetings.goodbye"
+          },
+          {
+            "domain": "default",
+            "utterance": "Farewell!",
+            "intent": "greetings.goodbye"
+          },
+          {
+            "domain": "default",
+            "utterance": "So Long!",
+            "intent": "greetings.goodbye"
+          },
+          {
+            "domain": "default",
+            "utterance": "Hello there!",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "Nice to see you!",
+            "intent": "greetings.hello"
+          },
+          {
+            "domain": "default",
+            "utterance": "Howdy!",
+            "intent": "greetings.hello"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "tatty-by": 1,
+              "farewel": 1,
+              "so": 1,
+              "long": 1,
+              "hello": 1,
+              "there": 1,
+              "nice": 1,
+              "to": 1,
+              "see": 1,
+              "you": 1,
+              "howdi": 1
+            },
+            "intents": {
+              "greetings.goodbye": 1,
+              "greetings.hello": 1
+            },
+            "intentFeatures": {
+              "greetings.goodbye": {
+                "tatty-by": 1,
+                "farewel": 1,
+                "so": 1,
+                "long": 1
+              },
+              "greetings.hello": {
+                "hello": 1,
+                "there": 1,
+                "nice": 1,
+                "to": 1,
+                "see": 1,
+                "you": 1,
+                "howdi": 1
+              }
+            },
+            "featuresToIntent": {
+              "tatty-by": [
+                "greetings.goodbye"
+              ],
+              "farewel": [
+                "greetings.goodbye"
+              ],
+              "so": [
+                "greetings.goodbye"
+              ],
+              "long": [
+                "greetings.goodbye"
+              ],
+              "hello": [
+                "greetings.hello"
+              ],
+              "there": [
+                "greetings.hello"
+              ],
+              "nice": [
+                "greetings.hello"
+              ],
+              "to": [
+                "greetings.hello"
+              ],
+              "see": [
+                "greetings.hello"
+              ],
+              "you": [
+                "greetings.hello"
+              ],
+              "howdi": [
+                "greetings.hello"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "tatty-by",
+                "farewel",
+                "so",
+                "long",
+                "hello",
+                "there",
+                "nice",
+                "to",
+                "see",
+                "you",
+                "howdi"
+              ],
+              "intents": [
+                "greetings.goodbye",
+                "greetings.hello"
+              ],
+              "perceptrons": [
+                [
+                  8.477121353149414,
+                  8.477462768554688,
+                  4.2855119705200195,
+                  4.2855119705200195,
+                  -2.8570175170898438,
+                  -2.8570175170898438,
+                  -1.4289703369140625,
+                  -1.4289703369140625,
+                  -1.4289703369140625,
+                  -1.4289703369140625,
+                  -5.539760589599609,
+                  5.70808962132134
+                ],
+                [
+                  -3.9186835289001465,
+                  -3.9013350009918213,
+                  -1.9965722560882568,
+                  -1.9965722560882568,
+                  5.146273612976074,
+                  5.146273612976074,
+                  2.572659730911255,
+                  2.572659730911255,
+                  2.572659730911255,
+                  2.572659730911255,
+                  10.106609344482422,
+                  4.003994039426371
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "Tatty-bye!"
+      ],
+      [
+        "en",
+        "Farewell!"
+      ],
+      [
+        "en",
+        "So Long!"
+      ],
+      [
+        "en",
+        "Hello there!"
+      ],
+      [
+        "en",
+        "Nice to see you!"
+      ],
+      [
+        "en",
+        "Howdy!"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "greetings.goodbye": [
+          {
+            "answer": "Until next time!"
+          },
+          {
+            "answer": "See you soon!"
+          }
+        ],
+        "greetings.hello": [
+          {
+            "answer": "Hello!"
+          },
+          {
+            "answer": "Nice to see you!"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

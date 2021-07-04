@@ -1,20 +1,45 @@
 import React from "react";
 import { Launcher } from 'react-chat-window';
+import io from 'socket.io-client';
 
 class Chatbot extends React.Component {
     constructor(props) {
         super(props);
 
     this.state = {
-        messageList: []
+        messageList: [],
+        socket: io("http://localhost:3000"),
+        room: "user1"
     }
 
+    }
+
+    UNSAFE_componentWillMount() {
+        this.sendMessage("Hi there!");
+    }
+
+    componentDidMount() {
+        this.state.socket.connect(true);
+        this.state.socket.emit('join', this.state.room);
+    
+    this.state.socket.on("send-msg-response", async(msg) => {
+        this.state.messageList.pop()
+        await this.setState({
+            messageList: [...this.state.messageList]
+        })
+
+    this.sendMessage(msg);
+    })
     }
 
     async onMessageWasSent(message){
         await this.setState({
             messageList: [...this.state.messageList, message]
          })
+    
+    this.sendMessage("...");
+         await this.state.socket.emit('new-msg', { msg:
+        message.data.text, room: this.state.room })
     }
 
     sendMessage(text){

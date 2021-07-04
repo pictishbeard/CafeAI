@@ -19,7 +19,7 @@ async function trainChatBotAI() {
         manager.addAnswer('en', 'greetings.hello', 'Hello!');
         manager.addAnswer('en', 'greetings.hello', 'Nice to see you!');
 
-await.manager.train();
+await manager.train();
     manager.save();
     console.log("The AI has been trained!")
     resolve(true);
@@ -42,7 +42,15 @@ const connectWebSocket = (io) => {
         });
 
 socket.on('new-msg', async function (data) {
-
+            let response = await generateResponseAI(data.msg);
+            io.to(data.room).emit('send-msg-response', 
+            response.answer !== undefined
+            ? response.answer : "I'm sorry, I don't understand: (");
 })
-    })
+    });
+}
+
+module.exports = {
+    connectWebSocket,
+    trainChatBotAI
 }
