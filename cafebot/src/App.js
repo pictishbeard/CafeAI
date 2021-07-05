@@ -1,22 +1,22 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Chatbot from './Chatbot.component';
-
+import ChatBotRobot from './Chatbot.component';
 function App() {
   return (
     <span>
-      <Chatbot />
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Test to see if the bot is up!
+      <ChatBotRobot />
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            REACT + NODE + SOCKETIO CHATBOT DEMO
         </p>
-      </header>
-    </div>
+        </header>
+      </div>
     </span>
   );
 }
+
 
 export default App;

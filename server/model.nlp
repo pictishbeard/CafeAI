@@ -33,23 +33,31 @@
           "useStemDict": true
         },
         "stemDict": {
-          "tatty-by": {
-            "intent": "greetings.goodbye",
+          "for,goodby,now": {
+            "intent": "greetings.bye",
             "domain": "default"
           },
-          "farewel": {
-            "intent": "greetings.goodbye",
+          "bye,care,take": {
+            "intent": "greetings.bye",
             "domain": "default"
           },
-          "long,so": {
-            "intent": "greetings.goodbye",
+          "later,okay,see,you": {
+            "intent": "greetings.bye",
             "domain": "default"
           },
-          "hello,there": {
+          "bye,for,now": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "go,i,must": {
+            "intent": "greetings.bye",
+            "domain": "default"
+          },
+          "hello": {
             "intent": "greetings.hello",
             "domain": "default"
           },
-          "nice,see,to,you": {
+          "hi": {
             "intent": "greetings.hello",
             "domain": "default"
           },
@@ -59,38 +67,48 @@
           }
         },
         "intentDict": {
-          "greetings.goodbye": "default",
+          "greetings.bye": "default",
           "greetings.hello": "default"
         },
         "sentences": [
           {
             "domain": "default",
-            "utterance": "Tatty-bye!",
-            "intent": "greetings.goodbye"
+            "utterance": "Goodbye for now",
+            "intent": "greetings.bye"
           },
           {
             "domain": "default",
-            "utterance": "Farewell!",
-            "intent": "greetings.goodbye"
+            "utterance": "Bye bye take care",
+            "intent": "greetings.bye"
           },
           {
             "domain": "default",
-            "utterance": "So Long!",
-            "intent": "greetings.goodbye"
+            "utterance": "Okay see you later",
+            "intent": "greetings.bye"
           },
           {
             "domain": "default",
-            "utterance": "Hello there!",
+            "utterance": "Bye for now",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "I must go",
+            "intent": "greetings.bye"
+          },
+          {
+            "domain": "default",
+            "utterance": "Hello",
             "intent": "greetings.hello"
           },
           {
             "domain": "default",
-            "utterance": "Nice to see you!",
+            "utterance": "Hi",
             "intent": "greetings.hello"
           },
           {
             "domain": "default",
-            "utterance": "Howdy!",
+            "utterance": "Howdy",
             "intent": "greetings.hello"
           }
         ],
@@ -108,68 +126,93 @@
               "log": true
             },
             "features": {
-              "tatty-by": 1,
-              "farewel": 1,
-              "so": 1,
-              "long": 1,
-              "hello": 1,
-              "there": 1,
-              "nice": 1,
-              "to": 1,
+              "goodby": 1,
+              "for": 1,
+              "now": 1,
+              "bye": 1,
+              "take": 1,
+              "care": 1,
+              "okay": 1,
               "see": 1,
               "you": 1,
+              "later": 1,
+              "i": 1,
+              "must": 1,
+              "go": 1,
+              "hello": 1,
+              "hi": 1,
               "howdi": 1
             },
             "intents": {
-              "greetings.goodbye": 1,
+              "greetings.bye": 1,
               "greetings.hello": 1
             },
             "intentFeatures": {
-              "greetings.goodbye": {
-                "tatty-by": 1,
-                "farewel": 1,
-                "so": 1,
-                "long": 1
+              "greetings.bye": {
+                "goodby": 1,
+                "for": 1,
+                "now": 1,
+                "bye": 1,
+                "take": 1,
+                "care": 1,
+                "okay": 1,
+                "see": 1,
+                "you": 1,
+                "later": 1,
+                "i": 1,
+                "must": 1,
+                "go": 1
               },
               "greetings.hello": {
                 "hello": 1,
-                "there": 1,
-                "nice": 1,
-                "to": 1,
-                "see": 1,
-                "you": 1,
+                "hi": 1,
                 "howdi": 1
               }
             },
             "featuresToIntent": {
-              "tatty-by": [
-                "greetings.goodbye"
+              "goodby": [
+                "greetings.bye"
               ],
-              "farewel": [
-                "greetings.goodbye"
+              "for": [
+                "greetings.bye"
               ],
-              "so": [
-                "greetings.goodbye"
+              "now": [
+                "greetings.bye"
               ],
-              "long": [
-                "greetings.goodbye"
+              "bye": [
+                "greetings.bye"
+              ],
+              "take": [
+                "greetings.bye"
+              ],
+              "care": [
+                "greetings.bye"
+              ],
+              "okay": [
+                "greetings.bye"
+              ],
+              "see": [
+                "greetings.bye"
+              ],
+              "you": [
+                "greetings.bye"
+              ],
+              "later": [
+                "greetings.bye"
+              ],
+              "i": [
+                "greetings.bye"
+              ],
+              "must": [
+                "greetings.bye"
+              ],
+              "go": [
+                "greetings.bye"
               ],
               "hello": [
                 "greetings.hello"
               ],
-              "there": [
-                "greetings.hello"
-              ],
-              "nice": [
-                "greetings.hello"
-              ],
-              "to": [
-                "greetings.hello"
-              ],
-              "see": [
-                "greetings.hello"
-              ],
-              "you": [
+              "hi": [
                 "greetings.hello"
               ],
               "howdi": [
@@ -189,50 +232,65 @@
                 "log": true
               },
               "features": [
-                "tatty-by",
-                "farewel",
-                "so",
-                "long",
-                "hello",
-                "there",
-                "nice",
-                "to",
+                "goodby",
+                "for",
+                "now",
+                "bye",
+                "take",
+                "care",
+                "okay",
                 "see",
                 "you",
+                "later",
+                "i",
+                "must",
+                "go",
+                "hello",
+                "hi",
                 "howdi"
               ],
               "intents": [
-                "greetings.goodbye",
+                "greetings.bye",
                 "greetings.hello"
               ],
               "perceptrons": [
                 [
-                  8.477121353149414,
-                  8.477462768554688,
-                  4.2855119705200195,
-                  4.2855119705200195,
-                  -2.8570175170898438,
-                  -2.8570175170898438,
-                  -1.4289703369140625,
-                  -1.4289703369140625,
-                  -1.4289703369140625,
-                  -1.4289703369140625,
-                  -5.539760589599609,
-                  5.70808962132134
+                  3.547337532043457,
+                  3.835749387741089,
+                  3.835749387741089,
+                  3.9585132598876953,
+                  3.6766104698181152,
+                  3.6766104698181152,
+                  2.8525924682617188,
+                  2.8525924682617188,
+                  2.8525924682617188,
+                  2.8525924682617188,
+                  3.805833339691162,
+                  3.805833339691162,
+                  3.805833339691162,
+                  -2.83388614654541,
+                  -2.817099094390869,
+                  -2.7995951175689697,
+                  2.85592960855999
                 ],
                 [
-                  -3.9186835289001465,
-                  -3.9013350009918213,
-                  -1.9965722560882568,
-                  -1.9965722560882568,
-                  5.146273612976074,
-                  5.146273612976074,
-                  2.572659730911255,
-                  2.572659730911255,
-                  2.572659730911255,
-                  2.572659730911255,
-                  10.106609344482422,
-                  4.003994039426371
+                  -1.8950731754302979,
+                  -2.457380771636963,
+                  -2.457380771636963,
+                  -2.644037961959839,
+                  -2.081730604171753,
+                  -2.081730604171753,
+                  -1.7042158842086792,
+                  -1.7042158842086792,
+                  -1.7042158842086792,
+                  -1.7042158842086792,
+                  -2.267854690551758,
+                  -2.267854690551758,
+                  -2.267854690551758,
+                  7.381767749786377,
+                  7.414748668670654,
+                  7.374270915985107,
+                  6.835164150442489
                 ]
               ]
             }
@@ -244,27 +302,35 @@
     "extraSentences": [
       [
         "en",
-        "Tatty-bye!"
+        "Goodbye for now"
       ],
       [
         "en",
-        "Farewell!"
+        "Bye bye take care"
       ],
       [
         "en",
-        "So Long!"
+        "Okay see you later"
       ],
       [
         "en",
-        "Hello there!"
+        "Bye for now"
       ],
       [
         "en",
-        "Nice to see you!"
+        "I must go"
       ],
       [
         "en",
-        "Howdy!"
+        "Hello"
+      ],
+      [
+        "en",
+        "Hi"
+      ],
+      [
+        "en",
+        "Howdy"
       ]
     ]
   },
@@ -282,9 +348,9 @@
     },
     "responses": {
       "en": {
-        "greetings.goodbye": [
+        "greetings.bye": [
           {
-            "answer": "Until next time!"
+            "answer": "Till next time"
           },
           {
             "answer": "See you soon!"
@@ -292,10 +358,10 @@
         ],
         "greetings.hello": [
           {
-            "answer": "Hello!"
+            "answer": "Hey there!"
           },
           {
-            "answer": "Nice to see you!"
+            "answer": "Greetings!"
           }
         ]
       }

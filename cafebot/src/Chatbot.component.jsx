@@ -1,75 +1,77 @@
+  
 import React from "react";
-import { Launcher } from 'react-chat-window';
+import { Launcher } from 'react-chat-window'
 import io from 'socket.io-client';
 
-class Chatbot extends React.Component {
+class ChatBotRobot extends React.Component {
     constructor(props) {
         super(props);
 
-    this.state = {
-        messageList: [],
-        socket: io("http://localhost:3000"),
-        room: "user1"
-    }
+        this.state = {
+            messageList: [],
+            socket: io("http://localhost:3000"),
+            room: "user1",
+        }
 
     }
 
     UNSAFE_componentWillMount() {
-        this.sendMessage("Hi there!");
+        this._sendMessage("Hey there !");
     }
 
     componentDidMount() {
         this.state.socket.connect(true);
         this.state.socket.emit('join', this.state.room);
-    
-    this.state.socket.on("send-msg-response", async(msg) => {
-        this.state.messageList.pop()
-        await this.setState({
-            messageList: [...this.state.messageList]
+
+        this.state.socket.on("send-msg-response", async (msg) => {
+            this.state.messageList.pop();
+            await this.setState({
+                messageList: [...this.state.messageList]
+            })
+
+            this._sendMessage(msg);
         })
 
-    this.sendMessage(msg);
-    })
     }
 
-    async onMessageWasSent(message){
+    async _onMessageWasSent(message) {
         await this.setState({
             messageList: [...this.state.messageList, message]
-         })
-    
-    this.sendMessage("...");
-         await this.state.socket.emit('new-msg', { msg:
-        message.data.text, room: this.state.room })
+        })
+
+        this._sendMessage("••••");
+        await this.state.socket.emit('new-msg', { msg: message.data.text, room: this.state.room })
+
     }
 
-    sendMessage(text){
-        if(text.length > 0){
+    _sendMessage(text) {
+        if (text.length > 0) {
             this.setState({
                 messageList: [...this.state.messageList, {
-                    author: 'person',
+                    author: 'them',
                     type: 'text',
                     data: { text }
-                }, ]
+                },]
             })
         }
     }
 
-    render (){
+    render() {
+
         return (
             <div id="chatbox" className="chatbox">
                 <Launcher
                     agentProfile={{
                         teamName: 'Chatbot',
-                        imageUrl: 'https://media.tenor.com/images/e2f8606e6ffcc1d7f744a3fa63f6b84a/tenor.gif'
+                        imageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'
                     }}
-                    onMessageWasSent=
-        { this.onMessageWasSent.bind(this)}
-                                messageList={this.state.messageList}
-                                showEmoji
+                    onMessageWasSent={this._onMessageWasSent.bind(this)}
+                    messageList={this.state.messageList}
+                    showEmoji
                 />
             </div>
-        )
+        );
     }
 }
 
-export default Chatbot;
+export default ChatBotRobot;
