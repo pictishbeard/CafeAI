@@ -39,7 +39,7 @@ class ChatBotRobot extends React.Component {
             messageList: [...this.state.messageList, message]
         })
 
-        this._sendMessage("••••");
+        this._sendMessage("Thinking...");
         await this.state.socket.emit('new-msg', { msg: message.data.text, room: this.state.room })
 
     }
@@ -62,8 +62,8 @@ class ChatBotRobot extends React.Component {
             <div id="chatbox" className="chatbox">
                 <Launcher
                     agentProfile={{
-                        teamName: 'Chatbot',
-                        imageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'
+                        teamName: 'HelperBot',
+                        imageUrl: 'https://www.shutterstock.com/image-vector/cute-smiling-funny-robot-chat-bot-757177696'
                     }}
                     onMessageWasSent={this._onMessageWasSent.bind(this)}
                     messageList={this.state.messageList}
