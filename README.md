@@ -9,13 +9,13 @@ Purpose -
   
 How To Run -
   
-  To run this bot the following will need to be done:
-   1 - Clone this repo onto your own local machine
-   2 - Open up the repo in your IDE
-   3 - Run the following command in the IDE terminal within Server directory of the project: npm install
-   4 - Do the same command but this time in Client
-   5 - Go to Server and run: node bin/www
-   6 - Open a new terminal in the ide beside the running one, go to Client and run: npm start
+  To run this bot the following will need to be done:/br
+  - Clone this repo onto your own local machine/br
+  - Open up the repo in your IDE
+  - Run the following command in the IDE terminal within Server directory of the project: npm install
+  - Do the same command but this time in Client
+  - Go to Server and run: node bin/www
+  - Open a new terminal in the ide beside the running one, go to Client and run: npm start
    
 CURRENT ISSUE
  - At the moment there is a CORS issue with the project due to how the client grabs responses from the server, to workaorund this open the project in a Chrome browser, go to the Extensions store,
